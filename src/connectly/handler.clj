@@ -57,6 +57,8 @@
 (def token "6000699537:AAHw3ZE5BEjwRw-9o_xJ_UCBZF5uFt-3qZ0")
 (def agradecimientos ["Thanks" "thanks" "Thank" "thank" "Gracias" "gracias"])
 
+(tg/set-webhook token "https://plankton-app-qjlcy.ondigitalocean.app/handler")
+
 (defn inline-keyboard [options]
   (let [keyboard-buttons (mapv (fn [option]
                                  [{:text option
@@ -112,8 +114,8 @@
   (h/message-fn message-handler))
 
 
-(def channel (p/start token bot-api))
-(println channel)
+;;(def channel (p/start token bot-api))
+;;(println channel)
 
 
 ;;; ---------------------- ;;;
@@ -151,6 +153,7 @@
 
 (defroutes app-routes
   (GET "/" [request] (index-page request))
+  (POST "/handler" {body :body :as r} (bot-api body))
   (POST "/survey" {body :body :as r} (if (not (nil? (:tg-id body)))
                                        (do
                                          (finished-tx-review body) 

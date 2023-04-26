@@ -1,18 +1,12 @@
 # connectly
 
-FIXME
+You can use it directly on telegram by following this [link](t.me/ConnectlyTestBot).
 
-## Prerequisites
+Check the frontend [here](https://plankton-app-qjlcy.ondigitalocean.app/).
 
-You will need [Leiningen][] 2.0.0 or above installed.
+## Build
 
-[leiningen]: https://github.com/technomancy/leiningen
-
-## Running
-
-To start a web server for the application, run:
-
-    lein ring server
+You can just build the docker image and it will work, just be sure to expose the ports you want to.
 
 ## License
 
