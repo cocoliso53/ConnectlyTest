@@ -1,0 +1,1357 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+o o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
+; Jacking in...
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+; Starting Jack-in Terminal: pushd /Users/cuau/Projects/connectly ; lein update-in :dependencies conj '[nrepl,"1.0.0"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.28.5"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +dev repl :headless ; popd
+; Using host:port 127.0.0.1:50981 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉user꞉>  ; Use `alt+enter` to evaluate
+; Jack-in done.
+clj꞉user꞉> (require '[morse.polling :as p]
+                    '[morse.api :as tg])
+nil
+clj꞉user꞉> 
+(require '[morse.handlers :as h])
+nil
+clj꞉connectly.handler꞉> (def token "6000699537:AAHw3ZE5BEjwRw-9o_xJ_UCBZF5uFt-3qZ0
+                                    ")
+#'connectly.handler/token
+clj꞉connectly.handler꞉> 
+token
+"6000699537:AAHw3ZE5BEjwRw-9o_xJ_UCBZF5uFt-3qZ0\n                                    "
+clj꞉connectly.handler꞉> 
+(def token "6000699537:AAHw3ZE5BEjwRw-9o_xJ_UCBZF5uFt-3qZ0")
+#'connectly.handler/token
+clj꞉connectly.handler꞉> 
+#'connectly.handler/token
+clj꞉connectly.handler꞉> 
+
+
+token
+"6000699537:AAHw3ZE5BEjwRw-9o_xJ_UCBZF5uFt-3qZ0"
+clj꞉connectly.handler꞉> 
+(h/defhandler bot-api
+  (h/command-fn "start" (fn [{{id :id :as chat} chat}]
+                          (println "Bot joined new chat: " chat)
+; Syntax error compiling at (output.calva-repl:50:27).
+; Unable to resolve symbol: chat in this context
+(h/defhandler bot-api
+  (h/command-fn "start" (fn [{{id :id :as chat} chat}]
+                          (println "Bot joined new chat: " chat)
+                          (tg/send-text token id "Welcome!")))
+; Syntax error compiling at (output.calva-repl:54:25).
+; Unable to resolve symbol: chat in this context
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:24:27).
+; No such namespace: tg
+clj꞉connectly.handler꞉> (require '[morse.api :as tg])
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> token
+"6000699537:AAHw3ZE5BEjwRw-9o_xJ_UCBZF5uFt-3qZ0"
+clj꞉connectly.handler꞉> 
+(require '[morse.polling :as p])
+nil
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+Bot joined new chat:  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Help was requested in  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Intercepted message:  {:message_id 4, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682387576, :text Lol}
+#'connectly.handler/inline-keyboard
+clj꞉connectly.handler꞉> (inline-keyboard ["Option A" "Option B" "Option C"])
+{:inline_keyboard
+ [[{:text "Option A", :callback_data "Option A"}]
+  [{:text "Option B", :callback_data "Option B"}]
+  [{:text "Option C", :callback_data "Option C"}]]}
+clj꞉connectly.handler꞉> (p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:42:3).
+; Unable to resolve symbol: message-handler in this context
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:29:32).
+; Unable to resolve symbol: agradecimientos in this context
+clj꞉connectly.handler꞉> 
+#'connectly.handler/agradecimientos
+clj꞉connectly.handler꞉> (.contains agradecimientos "Thanks")
+true
+clj꞉connectly.handler꞉> 
+(.contains agradecimientos "Hola")
+false
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+Bot joined new chat:  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Intercepted message:  {:message_id 6, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682391211, :text Mensaje}
+Agradecimiento
+
+(into {:a 1 :b 2} {:c 3})
+{:a 1, :b 2, :c 3}
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:34:9).
+; Unable to resolve symbol: chat in this context
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:49:17).
+; Unable to resolve symbol: message in this context
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+Intercepted message:  {:message_id 13, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682392325, :text Gracias}
+Help was requested in  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Bot joined new chat:  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Bot joined new chat:  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Intercepted message:  {:message_id 18, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682392431, :reply_to_message {:message_id 13, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682392325, :text Gracias}, :text Lol}
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+Bot joined new chat:  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Agradecimiento
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+{:id 1681734915040419346, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :message {:message_id 36, :from {:id 6000699537, :is_bot true, :first_name Connectly_test, :username ConnectlyTestBot}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682393787, :text Como calificas?, :reply_markup {:inline_keyboard [[{:text 1, :callback_data 1}] [{:text 2, :callback_data 2}] [{:text 3, :callback_data 3}]]}}, :chat_instance -7599268497000580778, :data 1}
+; Syntax error reading source at (REPL:212:488).
+; Map literal must contain an even number of forms
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:35:20).
+; Unable to resolve symbol: inline in this context
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+
+(inline-keyboard ["5" "4" "3" "2" "1"])
+{:inline_keyboard
+ [[{:text "5", :callback_data "5"}]
+  [{:text "4", :callback_data "4"}]
+  [{:text "3", :callback_data "3"}]
+  [{:text "2", :callback_data "2"}]
+  [{:text "1", :callback_data "1"}]]}
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+Bot joined new chat:  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Intercepted message:  {:message_id 61, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682452257, :text Hola}
+; Syntax error compiling at (output.calva-repl:1:7703).
+; Unable to resolve symbol: Cuau in this context
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+Intercepted message:  {:message_id 63, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682452326, :text Hola}
+Agradecimiento
+Data:  {:id 1681734915598072728, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :message {:message_id 65, :from {:id 6000699537, :is_bot true, :first_name Connectly_test, :username ConnectlyTestBot}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682452342, :text Como calificas?, :reply_markup {:inline_keyboard [[{:text 1, :callback_data 1}] [{:text 2, :callback_data 2}] [{:text 3, :callback_data 3}]]}}, :chat_instance -7599268497000580778, :data 3}
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+(random-uuid)
+; Syntax error compiling at (output.calva-repl:318:1).
+; Unable to resolve symbol: random-uuid in this context
+clj꞉connectly.handler꞉> 
+(rand-nth)
+; Execution error (ArityException) at connectly.handler/eval21667 (form-init4226131570546124015.clj:322).
+; Wrong number of args (0) passed to: clojure.core/rand-nth
+clj꞉connectly.handler꞉> (rand-nth [11 12 .. 20])
+; Syntax error compiling at (output.calva-repl:325:25).
+; Can't take value of a macro: #'clojure.core/..
+clj꞉connectly.handler꞉> 
+(rand-nth [11 12..])
+; Syntax error reading source at (REPL:329:19).
+; Invalid number: 12..
+clj꞉connectly.handler꞉> 
+(rand-nth [11 12 13 14 15])
+15
+clj꞉connectly.handler꞉> 
+(rand-nth [11 12 13 14 15])
+15
+clj꞉connectly.handler꞉> 
+(rand-nth [11 12 13 14 15])
+13
+clj꞉connectly.handler꞉> 
+(rand-nth [11 12 13 14 15])
+12
+clj꞉connectly.handler꞉> (def mock-orders {100 {:usuario "pepe"
+                                               :product "algo"
+                                               :completed false}
+                                          200 {:usuario "tono"
+                                               :product "otro"
+                                               :completed false}
+                                          201 {:usuario "juan"
+                                               :product "algo"
+                                               :completed true}
+                                          202 {:usuario "pepe"
+                                               :product "algo"
+                                               :completed true}})
+#'connectly.handler/mock-orders
+clj꞉connectly.handler꞉> 
+mock-orders
+{100 {:usuario "pepe", :product "algo", :completed false},
+ 200 {:usuario "tono", :product "otro", :completed false},
+ 201 {:usuario "juan", :product "algo", :completed true},
+ 202 {:usuario "pepe", :product "algo", :completed true}}
+clj꞉connectly.handler꞉> 
+(map (fn [[k {completed :completed :as v}]] completed) mock-orders)
+(false false true true)
+clj꞉connectly.handler꞉> (def a 5)
+#'connectly.handler/a
+clj꞉connectly.handler꞉> 
+a
+5
+clj꞉connectly.handler꞉> 
+(str "numero: " a)
+"numero: 5"
+clj꞉connectly.handler꞉> (defmacro make-helper [kw function-body]
+                          `(fn [[k {~kf :~kw :as v}]]
+                             ~function-body))
+; Syntax error reading source at (REPL:375:42).
+; Invalid token: :
+clj꞉connectly.handler꞉> 
+(defmacro make-helper [kw function-body]
+                          `(fn [[k {keys [~word]}]]
+                             ~function-body))
+; Syntax error reading source at (REPL:381:42).
+; Invalid token: :
+(defmacro make-helper [kw function-body]
+  `(fn [[k {keys [~word]}]]
+     ~function-body))clj꞉connectly.handler꞉> 
+; Syntax error compiling at (output.calva-repl:1:7703).
+; Unable to resolve symbol:   in this context(defmacro make-helper [kw function-body]
+                                               `(fn [[k {keys [~word]}]]
+                                                  ~function-body))
+; Syntax error reading source at (REPL:75:21).
+; Invalid token: chat:(defmacro make-helper [kw function-body]
+                        `(fn [[k {keys [~word]}]]
+                           ~function-body))
+
+; Syntax error reading source at (REPL:75:21).
+; Invalid token: chat:
+clj꞉connectly.handler꞉> (defmacro make-helper [kw function-body]
+                          `(fn [[k {~kf :~kw :as v}]]
+                             ~function-body))
+; Syntax error reading source at (REPL:400:42).
+; Invalid token: :
+clj꞉connectly.handler꞉> 
+(defmacro make-helper [kw function-body]
+                          `(fn [[k {keys [~kw]}]]
+                             ~function-body))
+#'connectly.handler/make-helper
+clj꞉connectly.handler꞉> (defmacro make-helper [kw function-body]
+                          `(fn [[k {:keys [~kw]}]]
+                             ~function-body))
+#'connectly.handler/make-helper
+clj꞉connectly.handler꞉> mock-orders
+{100 {:usuario "pepe", :product "algo", :completed false},
+ 200 {:usuario "tono", :product "otro", :completed false},
+ 201 {:usuario "juan", :product "algo", :completed true},
+ 202 {:usuario "pepe", :product "algo", :completed true}}
+clj꞉connectly.handler꞉> 
+(def test-fn (make-helper completed completed))
+; Syntax error macroexpanding clojure.core/fn at (output.calva-repl:419:14).
+; ([connectly.handler/k {:keys [completed]}]) - failed: Extra input at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
+; (connectly.handler/k {:keys [completed]}) - failed: Extra input at: [:fn-tail :arity-n :params] spec: :clojure.core.specs.alpha/param-list
+clj꞉connectly.handler꞉> 
+(def test-fn (make-helper completed (+ 1 2)))
+; Syntax error macroexpanding clojure.core/fn at (output.calva-repl:424:14).
+; ([connectly.handler/k {:keys [completed]}]) - failed: Extra input at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
+; (connectly.handler/k {:keys [completed]}) - failed: Extra input at: [:fn-tail :arity-n :params] spec: :clojure.core.specs.alpha/param-list
+clj꞉connectly.handler꞉> 
+(def test-fn (make-helper completed `(+ 1 2)))
+; Syntax error macroexpanding clojure.core/fn at (output.calva-repl:429:14).
+; ([connectly.handler/k {:keys [completed]}]) - failed: Extra input at: [:fn-tail :arity-1 :params] spec: :clojure.core.specs.alpha/param-list
+; (connectly.handler/k {:keys [completed]}) - failed: Extra input at: [:fn-tail :arity-n :params] spec: :clojure.core.specs.alpha/param-list
+clj꞉connectly.handler꞉> `(+ 1 2)
+(clojure.core/+ 1 2)
+clj꞉connectly.handler꞉> 
+#function[connectly.handler/eval21701/user-orders--21702]
+clj꞉connectly.handler꞉> 
+#function[connectly.handler/eval21712/pending-order?--21713]
+clj꞉connectly.handler꞉> 
+#function[connectly.handler/eval21723/review?--21724]
+clj꞉connectly.handler꞉> (def db (atom {100 {:user-id 10 :completed? true}
+                                       102 {:user-id 11 :completed? true}
+                                       104 {:user-id 10 :completed? true :review "Todo ok"}
+                                       106 {:user-id 12 :completed? false}
+                                       103 {:user-id 13 :completed? false}
+                                       101 {:user-id 10 :completed? false}
+                                       110 {:user-id 13 :completed? false}}))
+#'connectly.handler/db
+clj꞉connectly.handler꞉> 
+db
+#<Atom@6115b470: 
+  {100 {:user-id 10, :completed? true},
+   102 {:user-id 11, :completed? true},
+   104 {:user-id 10, :completed? true, :review "Todo ok"},
+   106 {:user-id 12, :completed? false},
+   103 {:user-id 13, :completed? false},
+   101 {:user-id 10, :completed? false},
+   110 {:user-id 13, :completed? false}}>
+clj꞉connectly.handler꞉> 
+@atom
+; Execution error (ClassCastException) at connectly.handler/eval21734 (form-init4226131570546124015.clj:1).
+; class clojure.core$atom cannot be cast to class java.util.concurrent.Future (clojure.core$atom is in unnamed module of loader 'app'; java.util.concurrent.Future is in module java.base of loader 'bootstrap')
+clj꞉connectly.handler꞉> 
+@db
+{100 {:user-id 10, :completed? true},
+ 102 {:user-id 11, :completed? true},
+ 104 {:user-id 10, :completed? true, :review "Todo ok"},
+ 106 {:user-id 12, :completed? false},
+ 103 {:user-id 13, :completed? false},
+ 101 {:user-id 10, :completed? false},
+ 110 {:user-id 13, :completed? false}}
+clj꞉connectly.handler꞉> 
+#function[connectly.handler/eval21738/user-orders--21739]
+clj꞉connectly.handler꞉> 
+#'connectly.handler/user-orders
+clj꞉connectly.handler꞉> 
+#'connectly.handler/pending-order?
+clj꞉connectly.handler꞉> 
+#'connectly.handler/review?
+clj꞉connectly.handler꞉> (user-orders db 10)
+([100 {:user-id 10, :completed? true}]
+ [104 {:user-id 10, :completed? true, :review "Todo ok"}]
+ [101 {:user-id 10, :completed? false}])
+clj꞉connectly.handler꞉> 
+#'connectly.handler/pending-order?
+clj꞉connectly.handler꞉> 
+#'connectly.handler/review?
+clj꞉connectly.handler꞉> (as-> 10 $
+                          (user-orders db $)
+                          (pending-order? $))
+true
+clj꞉connectly.handler꞉> 
+(as-> 11 $
+                          (user-orders db $)
+                          (pending-order? $))
+nil
+clj꞉connectly.handler꞉> 
+(as-> 11 $
+                          (user-orders db $)
+                          (review? $))
+true
+clj꞉connectly.handler꞉> @db
+{100 {:user-id 10, :completed? true},
+ 102 {:user-id 11, :completed? true},
+ 104 {:user-id 10, :completed? true, :review "Todo ok"},
+ 106 {:user-id 12, :completed? false},
+ 103 {:user-id 13, :completed? false},
+ 101 {:user-id 10, :completed? false},
+ 110 {:user-id 13, :completed? false}}
+clj꞉connectly.handler꞉> (rand-int 100 1000)
+; Execution error (ArityException) at connectly.handler/eval21799 (form-init4226131570546124015.clj:510).
+; Wrong number of args (2) passed to: clojure.core/rand-int
+clj꞉connectly.handler꞉> 
+(rand-int 100)
+85
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:30:46).
+; Unable to resolve symbol: products in this context
+clj꞉connectly.handler꞉> 
+#'connectly.handler/products
+clj꞉connectly.handler꞉> 
+#'connectly.handler/new-order
+clj꞉connectly.handler꞉> (new)
+#'connectly.handler/new-order!
+clj꞉connectly.handler꞉> (new-order! db 12345)
+nil
+clj꞉connectly.handler꞉> 
+@db
+nil
+clj꞉connectly.handler꞉> 
+@db
+nil
+clj꞉connectly.handler꞉> 
+db
+#<Atom@6115b470: nil>
+clj꞉connectly.handler꞉> (def db (atom {100 {:user-id 10 :completed? true}
+                                       102 {:user-id 11 :completed? true}
+                                       104 {:user-id 10 :completed? true :review "Todo ok"}
+                                       106 {:user-id 12 :completed? false}
+                                       103 {:user-id 13 :completed? false}
+                                       101 {:user-id 10 :completed? false}
+                                       110 {:user-id 13 :completed? false}}))
+#'connectly.handler/db
+clj꞉connectly.handler꞉> 
+@db
+{100 {:user-id 10, :completed? true},
+ 102 {:user-id 11, :completed? true},
+ 104 {:user-id 10, :completed? true, :review "Todo ok"},
+ 106 {:user-id 12, :completed? false},
+ 103 {:user-id 13, :completed? false},
+ 101 {:user-id 10, :completed? false},
+ 110 {:user-id 13, :completed? false}}
+clj꞉connectly.handler꞉> 
+(new-order! db 12345)
+nil
+clj꞉connectly.handler꞉> 
+@db
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/new-order!
+clj꞉connectly.handler꞉> 
+(def db (atom {100 {:user-id 10 :completed? true}
+                                       102 {:user-id 11 :completed? true}
+                                       104 {:user-id 10 :completed? true :review "Todo ok"}
+                                       106 {:user-id 12 :completed? false}
+                                       103 {:user-id 13 :completed? false}
+                                       101 {:user-id 10 :completed? false}
+                                       110 {:user-id 13 :completed? false}}))
+#'connectly.handler/db
+clj꞉connectly.handler꞉> 
+(new-order! db 12345)
+{100 {:user-id 10, :completed? true},
+ 102 {:user-id 11, :completed? true},
+ 104 {:user-id 10, :completed? true, :review "Todo ok"},
+ 106 {:user-id 12, :completed? false},
+ 103 {:user-id 13, :completed? false},
+ 101 {:user-id 10, :completed? false},
+ 110 {:user-id 13, :completed? false},
+ 45 {:user-id 12345, :product 13, :completed? false, :rating nil, :review nil, :messages []}}
+clj꞉connectly.handler꞉> 
+(user-orders db 1)
+()
+clj꞉connectly.handler꞉> (if-let [x ()]
+                          "ok"
+                          "no")
+"ok"
+clj꞉connectly.handler꞉> (filter (fn [[k {review :review}]] (nil? review)) @db)
+([100 {:user-id 10, :completed? true}]
+ [102 {:user-id 11, :completed? true}]
+ [106 {:user-id 12, :completed? false}]
+ [103 {:user-id 13, :completed? false}]
+ [101 {:user-id 10, :completed? false}]
+ [110 {:user-id 13, :completed? false}]
+ [45 {:user-id 12345, :product 13, :completed? false, :rating nil, :review nil, :messages []}])
+clj꞉connectly.handler꞉> 
+(filter (fn [[k {review :review user-id :user-id}]] (and (nil? review) (= user-id tg-id))) @db)
+; Syntax error compiling at (output.calva-repl:596:72).
+; Unable to resolve symbol: tg-id in this context
+clj꞉connectly.handler꞉> 
+(filter (fn [[k {review :review user-id :user-id}]] (and (nil? review) (= user-id 12345))) @db)
+([45 {:user-id 12345, :product 13, :completed? false, :rating nil, :review nil, :messages []}])
+clj꞉connectly.handler꞉> (update :lol {:lol nil} "uno")
+; Execution error (ClassCastException) at connectly.handler/eval21855 (form-init4226131570546124015.clj:602).
+; class java.lang.String cannot be cast to class clojure.lang.IFn (java.lang.String is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉connectly.handler꞉> 
+(update :lol {:lol nil} (fn [] "uno"))
+; Execution error (ArityException) at connectly.handler/eval21857 (form-init4226131570546124015.clj:606).
+; Wrong number of args (1) passed to: connectly.handler/eval21857/fn--21858
+clj꞉connectly.handler꞉> 
+(update :lol {:lol nil} (fn [_] "uno"))
+; Execution error (ClassCastException) at connectly.handler/eval21861 (form-init4226131570546124015.clj:610).
+; class clojure.lang.Keyword cannot be cast to class clojure.lang.Associative (clojure.lang.Keyword and clojure.lang.Associative are in unnamed module of loader 'app')
+clj꞉connectly.handler꞉> 
+(update :lol {:lol nil} (constantly "uno"))
+; Execution error (ClassCastException) at connectly.handler/eval21865 (form-init4226131570546124015.clj:614).
+; class clojure.lang.Keyword cannot be cast to class clojure.lang.Associative (clojure.lang.Keyword and clojure.lang.Associative are in unnamed module of loader 'app')
+clj꞉connectly.handler꞉> 
+(update {:lol nil} :lol (constantly "uno"))
+{:lol "uno"}
+clj꞉connectly.handler꞉> 
+(update {:lol nil} :lol "uno")
+; Execution error (ClassCastException) at connectly.handler/eval21869 (form-init4226131570546124015.clj:621).
+; class java.lang.String cannot be cast to class clojure.lang.IFn (java.lang.String is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉connectly.handler꞉> 
+#'connectly.handler/save-review!
+clj꞉connectly.handler꞉> (save-review! db 12345 "Todo muy bien")
+{110 {:user-id 13, :completed? false},
+ 101 {:user-id 10, :completed? false},
+ 102 {:user-id 11, :completed? true},
+ 106 {:user-id 12, :completed? false},
+ 104 {:user-id 10, :completed? true, :review "Todo ok"},
+ [45 {:user-id 12345, :product 13, :completed? false, :rating nil, :review nil, :messages []}]
+ {:review "Todo muy bien"},
+ 100 {:user-id 10, :completed? true},
+ 103 {:user-id 13, :completed? false},
+ 45 {:user-id 12345, :product 13, :completed? false, :rating nil, :review nil, :messages []}}
+clj꞉connectly.handler꞉> 
+#'connectly.handler/save-review!
+clj꞉connectly.handler꞉> 
+(save-review! db 12345 "Todo muy bien")
+nil
+{110 {:user-id 13, :completed? false},
+ 101 {:user-id 10, :completed? false},
+ 102 {:user-id 11, :completed? true},
+ 106 {:user-id 12, :completed? false},
+ 104 {:user-id 10, :completed? true, :review "Todo ok"},
+ [45 {:user-id 12345, :product 13, :completed? false, :rating nil, :review nil, :messages []}]
+ {:review "Todo muy bien"},
+ 100 {:user-id 10, :completed? true},
+ 103 {:user-id 13, :completed? false},
+ 45 {:user-id 12345, :product 13, :completed? false, :rating nil, :review nil, :messages []}}
+clj꞉connectly.handler꞉> (let [[[order-uuid m]] (filter (fn [[_ {review :review user-id :user-id}]] 
+                                 (and (nil? review) 
+                                      (= user-id 12345))) @db)]
+; Syntax error compiling at (output.calva-repl:1:7703).
+; Unable to resolve symbol: order-uuid in this context
+clj꞉connectly.handler꞉> 
+#'connectly.handler/save-review!
+clj꞉connectly.handler꞉> 
+#'connectly.handler/save-review!
+clj꞉connectly.handler꞉> 
+(save-review! db 12345 "Todo muy bien")
+{110 {:user-id 13, :completed? false},
+ 101 {:user-id 10, :completed? false},
+ 102 {:user-id 11, :completed? true},
+ 106 {:user-id 12, :completed? false},
+ 104 {:user-id 10, :completed? true, :review "Todo ok"},
+ [45 {:user-id 12345, :product 13, :completed? false, :rating nil, :review nil, :messages []}]
+ {:review "Todo muy bien"},
+ 100 {:user-id 10, :completed? true},
+ 103 {:user-id 13, :completed? false},
+ 45 {:user-id 12345, :product 13, :completed? false, :rating nil, :review "Todo muy bien", :messages []}}
+clj꞉connectly.handler꞉> 
+(fn [{{id :id :as chat} chat}]
+                          (println "Bot joined new chat: " chat)
+; Syntax error compiling at (output.calva-repl:50:27).
+; Unable to resolve symbol: chat in this context
+(h/defhandler bot-api
+  (h/command-fn "start" (fn [{{id :id :as chat} chat}]
+                          (println "Bot joined new chat: " chat)
+                          (tg/send-text token id "Welcome!")))
+; Syntax error compiling at (output.calva-repl:54:25).
+; Unable to resolve symbol: chat in this context
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:24:27).
+; No such namespace: tg
+clj꞉connectly.handler꞉> (require '[morse.api :as tg])
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> token
+"6000699537:AAHw3ZE5BEjwRw-9o_xJ_UCBZF5uFt-3qZ0"
+clj꞉connectly.handler꞉> 
+(require '[morse.polling :as p])
+nil
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+Bot joined new chat:  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Help was requested in  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Intercepted message:  {:message_id 4, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682387576, :text Lol}
+#'connectly.handler/inline-keyboard
+clj꞉connectly.handler꞉> (inline-keyboard ["Option A" "Option B" "Option C"])
+{:inline_keyboard
+ [[{:text "Option A", :callback_data "Option A"}]
+  [{:text "Option B", :callback_data "Option B"}]
+  [{:text "Option C", :callback_data "Option C"}]]}
+clj꞉connectly.handler꞉> (p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:42:3).
+; Unable to resolve symbol: message-handler in this context
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:29:32).
+; Unable to resolve symbol: agradecimientos in this context
+clj꞉connectly.handler꞉> 
+#'connectly.handler/agradecimientos
+clj꞉connectly.handler꞉> (.contains agradecimientos "Thanks")
+true
+clj꞉connectly.handler꞉> 
+(.contains agradecimientos "Hola")
+false
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+Bot joined new chat:  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Intercepted message:  {:message_id 6, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682391211, :text Mensaje}
+Agradecimiento
+
+(into {:a 1 :b 2} {:c 3})
+{:a 1, :b 2, :c 3}
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:34:9).
+; Unable to resolve symbol: chat in this context
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:49:17).
+; Unable to resolve symbol: message in this context
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+Intercepted message:  {:message_id 13, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682392325, :text Gracias}
+Help was requested in  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Bot joined new chat:  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Bot joined new chat:  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Intercepted message:  {:message_id 18, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682392431, :reply_to_message {:message_id 13, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682392325, :text Gracias}, :text Lol}
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+Bot joined new chat:  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Agradecimiento
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+{:id 1681734915040419346, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :message {:message_id 36, :from {:id 6000699537, :is_bot true, :first_name Connectly_test, :username ConnectlyTestBot}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682393787, :text Como calificas?, :reply_markup {:inline_keyboard [[{:text 1, :callback_data 1}] [{:text 2, :callback_data 2}] [{:text 3, :callback_data 3}]]}}, :chat_instance -7599268497000580778, :data 1}
+; Syntax error reading source at (REPL:212:488).
+; Map literal must contain an even number of forms
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:35:20).
+; Unable to resolve symbol: inline in this context
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+
+(inline-keyboard ["5" "4" "3" "2" "1"])
+{:inline_keyboard
+ [[{:text "5", :callback_data "5"}]
+  [{:text "4", :callback_data "4"}]
+  [{:text "3", :callback_data "3"}]
+  [{:text "2", :callback_data "2"}]
+  [{:text "1", :callback_data "1"}]]}
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+Bot joined new chat:  {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}
+Intercepted message:  {:message_id 61, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682452257, :text Hola}
+; Syntax error compiling at (output.calva-repl:1:7703).
+; Unable to resolve symbol: Cuau in this context
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+Intercepted message:  {:message_id 63, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682452326, :text Hola}
+Agradecimiento
+Data:  {:id 1681734915598072728, :from {:id 391559422, :is_bot false, :first_name Cuau, :username cuaucortes, :language_code en}, :message {:message_id 65, :from {:id 6000699537, :is_bot true, :first_name Connectly_test, :username ConnectlyTestBot}, :chat {:id 391559422, :first_name Cuau, :username cuaucortes, :type private}, :date 1682452342, :text Como calificas?, :reply_markup {:inline_keyboard [[{:text 1, :callback_data 1}] [{:text 2, :callback_data 2}] [{:text 3, :callback_data 3}]]}}, :chat_instance -7599268497000580778, :data 3}
+#'connectly.handler/message-handler
+clj꞉connectly.handler꞉> 
+#'connectly.handler/bot-api
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+(p/stop channel)
+nil
+clj꞉connectly.handler꞉> 
+(random-uuid)
+; Syntax error compiling at (output.calva-repl:318:1).
+; Unable to resolve symbol: random-uuid in this context
+clj꞉connectly.handler꞉> 
+(rand-nth)
+; Execution error (ArityException) at connectly.handler/eval21667 (form-init4226131570546124015.clj:322).
+; Wrong number of args (0) passed to: clojure.core/rand-nth
+clj꞉connectly.handler꞉> (rand-nth [11 12 .. 20])
+; Syntax error compiling at (output.calva-repl:325:25).
+; Can't take value of a macro: #'clojure.core/..
+clj꞉connectly.handler꞉> 
+(rand-nth [11 12..])
+; Syntax error reading source at (REPL:329:19).
+; Invalid number: 12..
+clj꞉connectly.handler꞉> 
+(rand-nth [11 12 13 14 15])
+15
+clj꞉connectly.handler꞉> 
+(rand-nth [11 12 13 14 15])
+15
+clj꞉connectly.handler꞉> 
+(rand-nth [11 12 13 14 15])
+13
+clj꞉connectly.handler꞉> 
+(rand-nth [11 12 13 14 15])
+12
+clj꞉connectly.handler꞉> (def mock-orders {100 {:usuario "pepe"
+                                               :product "algo"
+                                               :completed false}
+                                          200 {:usuario "tono"
+                                               :product "otro"
+                                               :completed false}
+                                          201 {:usuario "juan"
+                                               :product "algo"
+                                               :completed true}
+                                          202 {:usuario "pepe"
+                                               :product "algo"
+                                               :completed true}})
+#'connectly.handler/mock-orders
+clj꞉connectly.handler꞉> 
+mock-orders
+{100 {:usuario "pepe", :product "algo", :completed false},
+ 200 {:usuario "tono", :product "otro", :completed false},
+ 201 {:usuario "juan", :product "algo", :completed true},
+ 202 {:usuario "pepe", :product "algo", :completed true}}
+clj꞉connectly.handler꞉> 
+(map (fn [[k {completed :completed :as v}]] completed) mock-orders)
+(false false true true)
+clj꞉connectly.handler꞉> (def a 5)
+#'connectly.handler/a
+clj꞉connectly.handler꞉> 
+a
+5
+clj꞉connectly.handler꞉> 
+(str "numero: " a)
+"numero: 5"
+clj꞉connectly.handler꞉> (defmacro make-helper [kw function-body]
+                          `(fn [[k {~kf :~kw :as v}]]
+                             ~function-body))
+; Syntax error reading source at (REPL:375:42).
+; Invalid token: :
+clj꞉connectly.handler꞉> 
+(defmacro make-helper [kw function-body]
+                          `(fn [[k {keys [~word]}]]
+                             ~function-body))
+; Syntax error reading source at (REPL:381:42).
+; Invalid token: :
+(defmacro make-helper [kw function-body]
+  `(fn [[k {keys [~word]}]]
+     ~function-body))clj꞉connectly.handler꞉> 
+(def channel (p/start token bot-api))
+#'connectly.handler/channel
+clj꞉connectly.handler꞉> 
+#'connectly.handler/save-rating!
+clj꞉connectly.handler꞉> 
+#'connectly.handler/save-rating!
+clj꞉connectly.handler꞉> 
+@db
+{110 {:user-id 13, :completed? false},
+ 101 {:user-id 10, :completed? false},
+ 102 {:user-id 11, :completed? true},
+ 106 {:user-id 12, :completed? false},
+ 104 {:user-id 10, :completed? true, :review "Todo ok"},
+ [45 {:user-id 12345, :product 13, :completed? false, :rating nil, :review nil, :messages []}]
+ {:review "Todo muy bien"},
+ 100 {:user-id 10, :completed? true},
+ 103 {:user-id 13, :completed? false},
+ 45 {:user-id 12345, :product 13, :completed? false, :rating nil, :review "Todo muy bien", :messages []}}
+clj꞉connectly.handler꞉> 
+(save-rating! db 12345 4)
+{110 {:user-id 13, :completed? false},
+ 101 {:user-id 10, :completed? false},
+ 102 {:user-id 11, :completed? true},
+ 106 {:user-id 12, :completed? false},
+ 104 {:user-id 10, :completed? true, :review "Todo ok"},
+ [45 {:user-id 12345, :product 13, :completed? false, :rating nil, :review nil, :messages []}]
+ {:review "Todo muy bien"},
+ 100 {:user-id 10, :completed? true},
+ 103 {:user-id 13, :completed? false},
+ 45 {:user-id 12345, :product 13, :completed? false, :rating 4, :review "Todo muy bien", :messages []}}
+clj꞉connectly.handler꞉> 
+(save-rating! db 12345 4)
+(if nil
+  "maño"
+  "bueno")
+"bueno"
+clj꞉connectly.handler-test꞉> @db
+; Syntax error compiling at (output.calva-repl:1:7703).
+; Unable to resolve symbol: db in this context
+clj꞉connectly.handler-test꞉> 
+double
+#function[clojure.core/double]
+clj꞉connectly.handler-test꞉> 
+
+; Syntax error reading source at (REPL:1054:31).
+; No reader function for tag function
+clj꞉connectly.handler-test꞉> 
+
+
+; nREPL Connection was closed
+; Jacking in...
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+; Starting Jack-in Terminal: pushd /Users/cuau/Projects/connectly ; lein update-in :dependencies conj '[nrepl,"1.0.0"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.28.5"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +dev repl :headless ; popd
+; Using host:port 127.0.0.1:50820 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉user꞉> 
+; Jack-in done.
+clj꞉user꞉> 
+; Syntax error compiling at (handler.clj:94:1).
+; Unable to resolve symbol: defn in this context
+clj꞉connectly.handler꞉> (def "lol")
+; Syntax error compiling def at (output.calva-repl:1084:25).
+; First argument to def must be a Symbol
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:94:1).
+; Unable to resolve symbol: defn in this context
+clj꞉connectly.handler꞉> (defn suma [x y] (+ x y))
+; Syntax error compiling at (output.calva-repl:1090:25).
+; Unable to resolve symbol: defn in this context
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (output.calva-repl:1090:25).
+; Unable to resolve symbol: defn in this context
+clj꞉connectly.handler꞉> 
+
+                        
+                        (def x "lol")
+#'connectly.handler/x
+clj꞉connectly.handler꞉> 
+x
+"lol"
+clj꞉connectly.handler꞉> 
+x
+"lol"
+clj꞉connectly.handler꞉> 
+; Syntax error compiling at (handler.clj:122:1).
+; Unable to resolve symbol: + in this context
+clj꞉connectly.handler꞉> 
+; nREPL Connection was closed
+; Jacking in...
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+; Starting Jack-in Terminal: pushd /Users/cuau/Projects/connectly ; lein update-in :dependencies conj '[nrepl,"1.0.0"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.28.5"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- with-profile +dev repl :headless ; popd
+; Using host:port 127.0.0.1:51135 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉user꞉> 
+; Jack-in done.
+clj꞉user꞉> (defn suma [x y] (+ x y))
+; Syntax error compiling at (output.calva-repl:1130:29).
+; Unable to resolve symbol: xy in this context
+clj꞉user꞉> 
+#'connectly.handler/suma
+clj꞉connectly.handler꞉> (def db (atom {82 {:user-id 391559422, :product 14, :completed? false, :rating nil, :review nil}}))
+#'connectly.handler/db
+clj꞉connectly.handler꞉> 
+@db
+{82 {:user-id 391559422, :product 14, :completed? false, :rating nil, :review nil}}
+clj꞉connectly.handler꞉> 
+#'connectly.handler/save-rating!
+clj꞉connectly.handler꞉> (filter (fn [[_ {rating :rating user-id :user-id}]]
+                                  (and (nil? rating)
+                                       (= user-id tg-id))) @db)
+; Syntax error compiling at (output.calva-repl:1144:40).
+; Unable to resolve symbol: tg-id in this context
+clj꞉connectly.handler꞉> 
+(filter (fn [[_ {rating :rating user-id :user-id}]]
+                                  (and (nil? rating)
+                                       (= user-id 391559422))) @db)
+([82 {:user-id 391559422, :product 14, :completed? false, :rating nil, :review nil}])
+clj꞉connectly.handler꞉> (save-rating! db 391559422 4)
+{82 {:user-id 391559422, :product 14, :completed? true, :rating 4, :review nil}}
+clj꞉connectly.handler꞉> 
+(def db (atom {71 {:user-id 391559422, :product 12, :completed? true, :rating 4, :review Lol}, 84 {:user-id 391559422, :product 14, :completed? false, :rating nil, :review nil}}))
+; Syntax error compiling at (output.calva-repl:1155:9).
+; Unable to resolve symbol: Lol in this context
+clj꞉connectly.handler꞉> 
+(def db (atom {71 {:user-id 391559422, :product 12, :completed? true, :rating 4, :review "Lol"}, 84 {:user-id 391559422, :product 14, :completed? false, :rating nil, :review nil}}))
+#'connectly.handler/db
+clj꞉connectly.handler꞉> 
+(save-rating! db 391559422 4)
+{71 {:user-id 391559422, :product 12, :completed? true, :rating 4, :review "Lol"},
+ 84 {:user-id 391559422, :product 14, :completed? true, :rating 4, :review nil}}
+clj꞉connectly.handler꞉> (filter (fn [[_ {rating :rating user-id :user-id}]]
+                                  (and (nil? rating)
+                                       (= user-id tg-id)))
+                                {16 {:user-id 391559422, :product 14, :completed? true, :rating 4, :review Lol}, 41 {:user-id 391559422, :product 13, :completed? false, :rating nil, :review nil}})
+; Syntax error compiling at (output.calva-repl:1167:40).
+; Unable to resolve symbol: tg-id in this context
+clj꞉connectly.handler꞉> 
+(filter (fn [[_ {rating :rating user-id :user-id}]]
+                                  (and (nil? rating)
+                                       (= user-id 391559422)))
+                                {16 {:user-id 391559422, :product 14, :completed? true, :rating 4, :review Lol}, 41 {:user-id 391559422, :product 13, :completed? false, :rating nil, :review nil}})
+; Syntax error compiling at (output.calva-repl:1172:1).
+; Unable to resolve symbol: Lol in this context
+clj꞉connectly.handler꞉> 
+(filter (fn [[_ {rating :rating user-id :user-id}]]
+                                  (and (nil? rating)
+                                       (= user-id 391559422)))
+                                {16 {:user-id 391559422, :product 14, :completed? true, :rating 4, :review "Lol"}, 41 {:user-id 391559422, :product 13, :completed? false, :rating nil, :review nil}})
+([41 {:user-id 391559422, :product 13, :completed? false, :rating nil, :review nil}])
+clj꞉connectly.handler꞉> 
+(type nil)
+nil
+clj꞉connectly.handler꞉> (Integer/parseInt 1)
+; Execution error (ClassCastException) at connectly.handler/eval7982 (form-init6722353049400739637.clj:1187).
+; class java.lang.Long cannot be cast to class java.lang.String (java.lang.Long and java.lang.String are in module java.base of loader 'bootstrap')@db
+; Execution error (ClassCastException) at connectly.handler/eval8002 (form-init6722353049400739637.clj:1187).
+; class java.lang.Long cannot be cast to class java.lang.String (java.lang.Long and java.lang.String are in module java.base of loader 'bootstrap')
+clj꞉connectly.handler꞉> 
+@db
+{71 {:user-id 391559422, :product 12, :completed? true, :rating 4, :review "Lol"},
+ 84 {:user-id 391559422, :product 14, :completed? true, :rating 4, :review nil}}
+clj꞉connectly.handler꞉> 
+(->> )#'connectly.handler/best-products
+clj꞉connectly.handler꞉> (->> @db (filter :rating))
+()
+clj꞉connectly.handler꞉> (filter (fn [[_ {rating :rating}]] (not (nil? rating))) @db)
+()
+clj꞉connectly.handler꞉> 
+@db
+{71 {:user-id 391559422, :product 12, :completed? true, :rating 4, :review "Lol"},
+ 84 {:user-id 391559422, :product 14, :completed? true, :rating 4, :review nil}}
+clj꞉connectly.handler꞉> (filter (fn [[_ {rating :rating}]] (not (nil? rating))) @db)
+([71 {:user-id 391559422, :product 12, :completed? true, :rating 4, :review "Lol"}]
+ [84 {:user-id 391559422, :product 14, :completed? true, :rating 4, :review nil}])
+clj꞉connectly.handler꞉> 
+#'connectly.handler/prepare-data
+clj꞉connectly.handler꞉> (->> @db prepare-data)
+[{:order-uuid 71, :user-id 391559422, :product 12, :completed? true, :rating 4, :review "Lol"}
+ {:order-uuid 84, :user-id 391559422, :product 14, :completed? true, :rating 4, :review nil}]
+clj꞉connectly.handler꞉> 
+(->> @db prepare-data (filter :rating))
+({:order-uuid 71, :user-id 391559422, :product 12, :completed? true, :rating 4, :review "Lol"}
+ {:order-uuid 84, :user-id 391559422, :product 14, :completed? true, :rating 4, :review nil})
+clj꞉connectly.handler꞉> 
+(->> @db prepare-data (filter :rating) (group-by :prodcut))
+{nil
+ [{:order-uuid 71, :user-id 391559422, :product 12, :completed? true, :rating 4, :review "Lol"}
+  {:order-uuid 84, :user-id 391559422, :product 14, :completed? true, :rating 4, :review nil}]}
+clj꞉connectly.handler꞉> 
+(->> @db prepare-data (filter :rating) (group-by :product))
+{12 [{:order-uuid 71, :user-id 391559422, :product 12, :completed? true, :rating 4, :review "Lol"}],
+ 14 [{:order-uuid 84, :user-id 391559422, :product 14, :completed? true, :rating 4, :review nil}]}
+clj꞉connectly.handler꞉> 
+(->> @db prepare-data (filter :rating) (group-by :product) (map (fn [[product orders]]
+                                                                  [product (->> orders
+                                                                                (map :rating)
+                                                                                (reduce +)
+                                                                                (/ (count orders)))])))
+([12 1/4] [14 1/4])
+clj꞉connectly.handler꞉> 
+(->> @db prepare-data (filter :rating) (group-by :product) (map (fn [[product orders]]
+                                                                  [product (as-> orders $
+                                                                                (map :rating $)
+                                                                                (reduce + $)
+                                                                                (/ $ (count orders)))])))
+([12 4] [14 4])
+clj꞉connectly.handler꞉> (defn lol [x] (+ 1 x))
+#'connectly.handler/lol
+clj꞉connectly.handler꞉> 
+(-> 4 lol)
+5
+clj꞉connectly.handler꞉> 
+(-> 4 (lol))
+5
+clj꞉connectly.handler꞉> (first {:lol {:lel "lel"}})
+[:lol {:lel "lel"}]
+clj꞉connectly.handler-test꞉> (last 
+                              (first {:lol {:lel "lel"}}))
+{:lel "lel"}
+clj꞉connectly.handler-test꞉> 
+(keys (last (first {:lol {:lel "lel"}})))
+(:lel)
+clj꞉connectly.handler-test꞉> 
+(set (keys (last (first {:lol {:lel "lel"}}))))
+#{:lel}
+clj꞉connectly.handler-test꞉> (false? nil)
+false
+clj꞉connectly.handler-test꞉> @test-db
+; Syntax error compiling at (output.calva-repl:1:7703).
+; Unable to resolve symbol: test-db in this context
+clj꞉connectly.handler-test꞉> 
+#'connectly.handler-test/test-db
+clj꞉connectly.handler-test꞉> 
+@test-db
+{}
+clj꞉connectly.handler-test꞉> 
+#'connectly.handler-test/reset-db!
+clj꞉connectly.handler-test꞉
+; Syntax error (ClassNotFoundException) compiling at (output.calva-repl:1:7703).
+; clj꞉connectly.handler-test꞉
+clj꞉connectly.handler-test꞉> 
+(require '[connectly.handler :refer :all])
+nil
+clj꞉connectly.handler-test꞉> 
+(new-order! test-db 1)
+; Syntax error compiling at (output.calva-repl:1279:1).
+; Unable to resolve symbol: new-order! in this context
+clj꞉connectly.handler-test꞉> 
+(require '[connectly.handler :as c])
+nil
+clj꞉connectly.handler-test꞉> 
+(c/new-order! test-db 1)
+; Syntax error compiling at (output.calva-repl:1286:1).
+; No such var: c/new-order!
+clj꞉connectly.handler-test꞉> 
+; Syntax error compiling at (handler.clj:35:49).
+; Unable to resolve symbol: products in this context
+clj꞉connectly.handler꞉> 
+#'connectly.handler/products
+clj꞉connectly.handler꞉> 
+#'connectly.handler/new-order!
+clj꞉connectly.handler꞉> 
+#'connectly.handler-test/test-db
+clj꞉connectly.handler-test꞉> 
+test-db
+#<Atom@6e7b889c: {}>
+clj꞉connectly.handler-test꞉> 
+(rest! test-db {122 {:user-id 1
+:product (rand-nth products)
+:completed? false
+:rating nil
+:review nil}})
+; Syntax error compiling at (output.calva-repl:1302:1).
+; Unable to resolve symbol: rest! in this context
+clj꞉connectly.handler-test꞉> 
+(reset! test-db {122 {:user-id 1
+:product (rand-nth products)
+:completed? false
+:rating nil
+:review nil}})
+; Syntax error compiling at (output.calva-repl:1311:10).
+; Unable to resolve symbol: products in this context
+clj꞉connectly.handler-test꞉> (def products [11 12 13 14 15])
+#'connectly.handler-test/products
+clj꞉connectly.handler-test꞉> 
+(reset! test-db {122 {:user-id 1
+:product (rand-nth products)
+:completed? false
+:rating nil
+:review nil}})
+{122 {:user-id 1, :product 11, :completed? false, :rating nil, :review nil}}
+clj꞉connectly.handler-test꞉> 
+@db
+{71 {:user-id 391559422, :product 12, :completed? true, :rating 4, :review "Lol"},
+ 84 {:user-id 391559422, :product 14, :completed? true, :rating 4, :review nil}}
+clj꞉connectly.handler-test꞉> 
+@test-db
+{122 {:user-id 1, :product 11, :completed? false, :rating nil, :review nil}}
+clj꞉connectly.handler-test꞉> 
+(c/save-rating! test-db 1 "5")
+{122 {:user-id 1, :product 11, :completed? true, :rating "5", :review nil}}
+clj꞉connectly.handler-test꞉> 
+(first @test-db)
+[122 {:user-id 1, :product 11, :completed? true, :rating "5", :review nil}]
+clj꞉connectly.handler-test꞉> 
+(reset-db!)
+{}
+clj꞉connectly.handler-test꞉> 
+(c/new-order! test-db 1)
+{27 {:user-id 1, :product 13, :completed? false, :rating nil, :review nil}}
+clj꞉connectly.handler-test꞉> 
+(c/save-rating! test-db 1 "5")
+{27 {:user-id 1, :product 13, :completed? true, :rating "5", :review nil}}
+clj꞉connectly.handler-test꞉> 
+(let [[[_ m]] (first @test-db)]
+  m)
+; Execution error (UnsupportedOperationException) at connectly.handler-test/eval8152 (form-init6722353049400739637.clj:1349).
+; nth not supported on this type: Integer
+clj꞉connectly.handler-test꞉> 
+(let [[_ m] (first @test-db)]
+  m)
+{:user-id 1, :product 13, :completed? true, :rating "5", :review nil}
+clj꞉connectly.handler-test꞉> 
