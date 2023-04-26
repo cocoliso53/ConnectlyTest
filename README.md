@@ -1,6 +1,6 @@
 # connectly
 
-You can use it directly on telegram by following this [link](t.me/ConnectlyTestBot).
+You can use it directly on telegram by following this [link](https://t.me/ConnectlyTestBot).
 
 Check the frontend [here](https://plankton-app-qjlcy.ondigitalocean.app/).
 
